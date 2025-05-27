@@ -1,0 +1,62 @@
+/* --- Animation Definitions --- */
+
+/* Fade In */
+.fade-in {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; /* Keep state after animation */
+    opacity: 0; /* Start elements as invisible until animation runs */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(15px); /* Optional: slight move up from bottom */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In from Left */
+.slide-in-left {
+    animation: slideInLeftAnimation ease 0.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0; /* Start hidden */
+    transform: translateX(-50px); /* Start position */
+}
+
+@keyframes slideInLeftAnimation {
+     0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale Up */
+.scale-up {
+    animation: scaleUpAnimation ease 0.7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transform: scale(0.95); /* Start slightly smaller */
+    opacity: 0; /* Start hidden */
+}
+
+@keyframes scaleUpAnimation {
+     0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add more animation classes and @keyframes rules as needed */

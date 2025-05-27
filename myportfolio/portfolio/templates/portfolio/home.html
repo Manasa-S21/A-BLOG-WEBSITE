@@ -1,0 +1,10 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero fade-in">
+    <h1>Welcome to My Portfolio</h1>
+    <img src="{% static 'portfolio/images/placeholder.png' %}" alt="Welcome banner or relevant image" class="responsive-img">
+    <a href="{% url 'about' %}" class="cta-button">Learn More About Me</a>
+</section>
+{% endblock content %}

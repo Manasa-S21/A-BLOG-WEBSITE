@@ -1,0 +1,78 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="contact-section scale-up">
+    <h2>Get In Touch</h2>
+    <p>Have a question or want to work together? Send me a message!</p>
+
+    <!-- Contact Icons -->
+    <div class="contact-methods">
+        <div class="contact-icon-group">
+            <a href="mailto:your.email@example.com" target="_blank" title="Send me an Email">
+                <i class="fas fa-envelope"></i>
+                <span>smanasa2107@gmail.com</span> {# Replace with your actual email #}
+            </a>
+        </div>
+        <div class="contact-icon-group">
+            <a href="https://www.linkedin.com/in/your-profile-url/" target="_blank" title="Connect on LinkedIn">
+                 <i class="fab fa-linkedin"></i>
+                 <span>www.linkedin.com/in/manasa-s-a997092a4</span> {# Replace with your actual LinkedIn URL #}
+            </a>
+        </div>
+         <!-- Add more icons like GitHub, Twitter etc. if needed -->
+    </div>
+
+    <hr class="separator"> 
+
+    <h3>Contact Form:</h3>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="message-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {# Add a container to control form width #}
+    <div class="form-container">
+        <form method="post" action="{% url 'contact' %}" class="contact-form">
+            {% csrf_token %}
+
+            {# Render form fields manually or use {{ form.as_p }} / {{ form.as_div }} #}
+             <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                {% if form.name.errors %}
+                    <div class="errorlist">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+             <div class="form-group">
+                 {{ form.email.label_tag }}
+                {{ form.email }}
+                 {% if form.email.errors %}
+                    <div class="errorlist">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+             <div class="form-group">
+                 {{ form.subject.label_tag }}
+                {{ form.subject }}
+                 {% if form.subject.errors %}
+                    <div class="errorlist">{{ form.subject.errors }}</div>
+                {% endif %}
+            </div>
+             <div class="form-group">
+                 {{ form.message.label_tag }}
+                {{ form.message }}
+                 {% if form.message.errors %}
+                    <div class="errorlist">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+
+
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}

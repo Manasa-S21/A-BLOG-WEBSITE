@@ -1,0 +1,368 @@
+/* Import Google Fonts (Alternative to HTML link) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap'); */
+
+:root {
+    --bg-dark: #1a1a2e; /* Dark blue-grey */
+    --bg-content: #2a2a3e; /* Slightly lighter content area */
+    --text-primary: #e0e0e0; /* Light grey for text */
+    --text-secondary: #b0b0c0; /* Slightly dimmer grey */
+    --accent-color: #f89e8b; /* Coral Pink */
+    --heading-color: #ffffff; /* White or Accent */
+    --link-color: var(--accent-color);
+    --link-hover-color: #ffffff;
+    --border-color: #444; /* Darker border */
+    --button-bg: var(--accent-color);
+    --button-text: #1a1a2e; /* Dark text on accent button */
+    --button-hover-bg: #f58a73;
+    --success-bg: #2a4a3a;
+    --success-text: #a0d0b0;
+    --error-bg: #5a2a2a;
+    --error-text: #f0a0a0;
+
+     /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.7; /* Increased line height for readability */
+    font-size: 16px;
+}
+
+main.content-wrapper {
+    max-width: 1000px; /* Slightly narrower */
+    margin: 40px auto; /* More top/bottom margin */
+    padding: 30px 40px; /* Increased padding */
+    background-color: var(--bg-content);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Softer, larger shadow */
+    border-radius: 12px; /* More rounded corners */
+    min-height: calc(100vh - 200px); /* Adjust based on header/footer height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    font-weight: 600; /* Adjust weight as needed */
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+}
+h1 { font-size: 2.5rem; font-weight: 700;}
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1.2rem;
+    color: var(--text-secondary); /* Use secondary text color for paragraphs */
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: none; /* Avoid underline on hover if desired */
+}
+
+.responsive-img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px; /* Consistent rounding */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.profile-pic {
+    width: 180px; /* Slightly larger */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+    float: left;
+    margin-bottom: 15px;
+    border: 4px solid var(--accent-color); /* Accent border */
+    box-shadow: 0 0 10px rgba(248, 158, 139, 0.5); /* Glow effect */
+}
+
+.about-content::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 12px 25px; /* Larger button padding */
+    border: none;
+    border-radius: 25px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600; /* Bold text */
+    font-family: var(--font-heading);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: var(--button-hover-bg);
+    text-decoration: none;
+    color: var(--button-text);
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    background-color: #1f1f2e; /* Match navbar or use a distinct dark shade */
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* --- Contact Page Specific Styles --- */
+
+.contact-methods {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    align-items: center;
+    gap: 40px; /* Spacing between icon groups */
+    margin: 30px 0;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+.contact-icon-group a {
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icon-group i {
+    font-size: 2.5rem; /* Larger icons */
+    margin-bottom: 10px;
+    color: var(--accent-color); /* Icon color */
+     width: 60px; /* Fixed width for alignment */
+    height: 60px; /* Fixed height */
+    line-height: 60px; /* Vertically center icon */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+    transition: background-color 0.3s ease;
+}
+
+.contact-icon-group span {
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+}
+
+.contact-icon-group a:hover {
+    color: var(--text-primary); /* Lighter text on hover */
+    transform: translateY(-5px); /* Lift effect */
+}
+
+.contact-icon-group a:hover i {
+     background-color: rgba(248, 158, 139, 0.2); /* Accent background on hover */
+     color: #fff; /* White icon color on hover */
+}
+
+hr.separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    margin: 40px 0;
+}
+
+
+/* Form Styling */
+.form-container {
+    max-width: 650px; /* Control max width of the form */
+    margin: 20px auto 0 auto; /* Center the container */
+    padding: 0 15px; /* Add padding if needed on smaller screens */
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.8rem; /* Increased spacing */
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px; /* Comfortable padding */
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #333a4e; /* Darker input background */
+    color: var(--text-primary); /* Light text */
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color); /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(248, 158, 139, 0.3); /* Subtle glow effect */
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px; /* Minimum height for message */
+}
+
+.contact-form ::placeholder { /* Style placeholder text */
+    color: #888a9b; /* Dimmer placeholder color */
+    opacity: 1; /* Ensure visibility */
+}
+
+.contact-form .errorlist {
+    color: #f87171; /* Brighter error color */
+    font-size: 0.85em;
+    list-style: none;
+    padding: 0;
+    margin-top: 6px;
+}
+
+/* Message Styling (Dark Theme) */
+.messages {
+    list-style: none;
+    padding: 15px 20px; /* More padding */
+    margin: 0 auto 25px auto; /* Center and add margin */
+    border-radius: 8px;
+    max-width: 650px; /* Match form width */
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+/* Note: Using message-success etc. based on updated contact.html */
+.message-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #4a7a5a;
+}
+.message-error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid #8a4a4a;
+}
+.message-info { /* Add styles if you use info/warning tags */
+    background-color: #2a3a5a;
+    color: #a0b0d0;
+    border: 1px solid #4a5a8a;
+}
+
+/* Blog Post Styling (Dark Theme) */
+.blog-post {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem; /* More space between posts */
+     background-color: rgba(255, 255, 255, 0.03); /* Very subtle background difference */
+     padding: 20px;
+     border-radius: 8px;
+}
+.blog-post:last-child {
+    border-bottom: none;
+}
+.blog-post h3 {
+    margin-top: 0; /* Remove extra top margin */
+    color: var(--accent-color); /* Accent color for post titles */
+}
+
+.post-date {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    main.content-wrapper {
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.3rem; }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin */
+        float: none; /* Don't float on small screens */
+        display: block;
+        margin-left: auto;
+        margin-right: auto; /* Center the image */
+    }
+    .about-content {
+        text-align: center; /* Center text when image is centered */
+    }
+     .about-content div {
+        text-align: left; /* Reset text alignment for paragraphs */
+     }
+
+    .contact-methods {
+        gap: 25px; /* Reduce gap */
+    }
+    .contact-icon-group i {
+        font-size: 2rem; /* Slightly smaller icons */
+         width: 50px;
+         height: 50px;
+         line-height: 50px;
+    }
+    .form-container {
+        max-width: 80%; /* Allow form to take full width */
+        padding: 0 5px;
+    }
+}
+
+.blog-post-image { /* For blog list page */
+    max-width: 50%; /* Set a maximum width */
+    width: 20%;      /* Make it responsive within its container */
+    height: auto;     /* Maintain aspect ratio */
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.blog-detail-image { /* For blog detail page */
+    max-width: 70%; /* Or a percentage like 80% */
+    width: 20%;
+    height: auto;
+    display: block;
+    margin: 2rem auto; /* Center it */
+    border-radius: 10px;
+}
+
+/* General responsive image class, if not already defined well */
+.responsive-img {
+    max-width: 50%;
+    height: auto;
+}

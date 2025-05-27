@@ -1,0 +1,81 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="blog-section">
+    <h2>My Blog</h2>
+    <div class="blog-post-list">
+        {% if posts %}
+            {% for post in posts %}
+            <article class="blog-post fade-in">
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-post-image responsive-img">
+                {% endif %}
+                <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p class="post-meta">
+                    Published on <span class="post-date">{{ post.publish_date|date:"F j, Y" }}</span> by <span class="post-author">{{ post.author.get_full_name|default:post.author.username }}</span>
+                </p>
+                {# Display a truncated version or excerpt #}
+                <div class="post-excerpt">
+                    {{ post.content|truncatewords_html:50|safe }} {# Use safe carefully, ensures HTML isn't escaped #}
+                    {# OR simpler truncation: {{ post.content|truncatewords:50 }} #}
+                </div>
+                <a href="{{ post.get_absolute_url }}" class="cta-button read-more-button">Read More</a>
+            </article>
+            {% endfor %}
+        {% else %}
+            <p>No blog posts have been published yet. Check back soon!</p>
+        {% endif %}
+    </div>
+
+    {# Optional: Add pagination later if needed #}
+
+</section>
+{% endblock content %}
+
+{% block extra_css %}
+{# Add specific styles for blog list if needed #}
+<style>
+    .blog-post-list {
+        margin-top: 2rem;
+    }
+    .blog-post {
+        background-color: rgba(255, 255, 255, 0.05); /* Slightly different bg for contrast */
+        padding: 25px;
+        margin-bottom: 2.5rem;
+        border-radius: 10px;
+        border-left: 5px solid var(--accent-color); /* Accent border */
+    }
+    .blog-post-image {
+        max-width: 50%; /* Ensure image fits container */
+        height: auto;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+    }
+    .blog-post h3 a {
+        color: var(--heading-color);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .blog-post h3 a:hover {
+        color: var(--accent-color);
+    }
+    .post-meta {
+        font-size: 0.85em;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
+    .post-meta .post-date, .post-meta .post-author {
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+    .post-excerpt {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+    }
+    .read-more-button {
+         padding: 8px 18px;
+         font-size: 0.9rem;
+    }
+</style>
+{% endblock extra_css %}

@@ -1,0 +1,88 @@
+/* portfolio/static/portfolio/css/nav.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Use a distinct dark shade or an accent color */
+    background-color: #1f1f2e; /* Darker blue-grey */
+    /* Or keep accent: background-color: #f89e8b; */
+    padding: 15px 40px; /* Adjusted padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+.user-name span {
+    color: #f89e8b; /* Use accent color */
+    font-size: 28px; /* Slightly larger */
+    font-weight: 700; /* Bolder */
+    font-family: 'Poppins', sans-serif; /* Apply heading font */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 25px; /* Wider spacing */
+}
+
+.nav-links a {
+    color: #e0e0e0; /* Light grey for readability */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500; /* Slightly bolder body font */
+    font-family: 'Roboto', sans-serif; /* Apply body font */
+    padding: 8px 0; /* Increased padding for better click area */
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #f89e8b; /* Accent color for underline */
+    transition: width 0.4s ease; /* Slower underline transition */
+    -webkit-transition: width 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff; /* Brighter white on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+    background-color: #f89e8b; /* Keep accent color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+    .user-name span {
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+    .nav-links {
+        margin-top: 10px;
+        flex-wrap: wrap; /* Allow wrapping on small screens */
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 5px 15px; /* Adjust spacing for wrapping */
+    }
+     .nav-links a {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manasa S - {% block title %}{{ page_title|default:"Portfolio" }}{% endblock title %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link shared CSS files -->
+    <link rel="stylesheet" href="{% static 'portfolio/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/base_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/animations.css' %}">
+    <!-- Add page-specific CSS block -->
+    {% block extra_css %}{% endblock extra_css %}
+</head>
+<body>
+    <!-- Navbar Section -->
+    <header>
+        <nav class="navbar">
+            <!-- User name on the left -->
+            <div class="user-name">
+                <span>Manasa S</span>
+            </div>
+
+            <!-- Navigation links on the right -->
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li> {# Added Blog Link #}
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper">
+        {% block content %}
+        <!-- Default content goes here if a child template doesn't provide it -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© {% now "Y" %} Manasa S. All rights reserved.</p>
+        <!-- Optional: Add social links here too -->
+    </footer>
+
+    <!-- Add page-specific JS block -->
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+    {% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="about-section slide-in-left">
+    <h2>About Me</h2>
+    <div class="about-content">
+        <img src="{% static 'portfolio/images/profile.jpg' %}" alt="Manasa S" class="profile-pic">
+        <div>
+            <p>Hello! I'm Manasa S.</p>
+            <p> I am Currently pursuing my Bacherlor's in Computer Applications at Bangalore.<br>
+                My interests are Dance,music,reading books,travelling.I am serving as an NSS Volunteer in my college.I am someone who believes in adventures,experiences and self discovery..</p>
+        </div>
+    </div>
+     <h3>Skills</h3>
+     <ul>
+         <li>Basic Python</li>
+         <li>HTML,CSS</li>
+         <li>Basic Computer knowledge</li>
+         <li>Excel</li>
+         <!-- Add more skills -->
+     </ul>
+</section>
+{% endblock content %}
